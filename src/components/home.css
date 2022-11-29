@@ -31,3 +31,9 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+
+a:link {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}

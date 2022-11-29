@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "./header.css";
-
-const getFilteredItems = (search, movies) => {
-  if (!search) {
-    return movies;
-  }
-  return [movies].filter((movie) => movie.name.includes(movies));
-};
+import { api_key, debounce } from "./utils";
 
 const Header = () => {
-  const [search, setSearch] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
-  let searchTitle =
-    "  https://api.themoviedb.org/3/movie/{movie_id}/lists?api_key=1c60d7b05efa5867f0454700abea2d49&language=en-US&page=1";
-
-  const movies = { searchTitle };
-
-  const filteredItem = getFilteredItems(search, movies);
+  let submitHandler = debounce((event) => {
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&page=1&include_adult=false&query=${event.target.value}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.results.length) {
+          setSearchResults(data.results);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, 1000);
 
   return (
     <div>
@@ -25,15 +25,18 @@ const Header = () => {
           Home
         </div>
         <div className="title">Movie List</div>
-
-        <label className="search-icon">Search</label>
-        <input type="text" onChange={(e) => setSearch(e.target.value)}></input>
-
-        <ul>
-          {[filteredItem].map((value, index) => (
-            <h1 key={index}>{value.name}</h1>
-          ))}
-        </ul>
+        <div className="search-wrapper">
+          <label className="search-icon">Search</label>
+          <input type="text" onChange={submitHandler} />
+          <div className="results-wrapper">
+            {searchResults.map((movie, index) => (
+              <div key={index}>
+                <div>{console.log(movie)}</div>
+                <div>{movie.title}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

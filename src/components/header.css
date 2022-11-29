@@ -27,3 +27,12 @@
   text-decoration: none;
   color: black;
 }
+
+.search-icon {
+  position: relative;
+}
+.results-wrapper {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+}

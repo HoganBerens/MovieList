@@ -8,3 +8,13 @@ export let keywords =
   "https://api.themoviedb.org/3/movie/{movie_id}/keywords?api_key=${api_key}";
 export let searchKeywords =
   "https://api.themoviedb.org/3/search/keyword?api_key=<<api_key>>&page=1";
+
+export function debounce(func, timeout = 500) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}
