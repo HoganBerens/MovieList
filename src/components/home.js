@@ -1,22 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import './home.css';
-import { Link } from 'react-router-dom';
-import { api_key, popular, imagePath, videoPath } from './utils';
+import React, { useEffect, useState } from "react";
+import "./home.css";
+import { Link } from "react-router-dom";
+import { api_key, popular, imagePath, videoPath } from "./utils";
+import Header from "./header";
 
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
-
-  const posterHandler = (id) => {
-    fetch(`${videoPath}${id}/videos?api_key=${api_key}&language=en-US`)
-      .then((response) => response.json())
-      .then((data) => {
-        let trailer = data.results.find(
-          (movie) => movie.name === 'Official Trailer'
-        );
-        console.log(trailer);
-        window.open(`https://www.youtube.com/watch?v=${trailer.key}`, '_blank');
-      });
-  };
 
   useEffect(() => {
     fetch(popular)
@@ -28,7 +17,7 @@ const Home = () => {
 
   return (
     <div className="home-wrapper">
-      <div className="header">Movie List</div>
+      <Header />
       <div className="mapWrapper">
         {popularMovies.map((movie, index) => (
           <Link
@@ -38,9 +27,6 @@ const Home = () => {
           >
             <h2 className="movieTitle">{movie.title}</h2>
             <img
-              onClick={() => {
-                posterHandler(movie.id);
-              }}
               className="moviePoster"
               src={`${imagePath}${movie.poster_path}`}
             />

@@ -1,0 +1,29 @@
+.header-wrapper {
+  display: flex;
+  background-color: blanchedalmond;
+}
+.home-button {
+  flex: 1 1 auto;
+  margin-left: 15px;
+  align-self: center;
+  font-size: 24px;
+}
+
+.title {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 40px;
+}
+.search-icon {
+  flex: 1 1 auto;
+  text-align: end;
+  margin-right: 15px;
+  font-size: 24px;
+  align-self: center;
+}
+
+.link {
+  flex: 1 1 auto;
+  text-decoration: none;
+  color: black;
+}
