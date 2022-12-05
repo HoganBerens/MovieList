@@ -31,8 +31,32 @@
 .search-icon {
   position: relative;
 }
+
 .results-wrapper {
   position: absolute;
+  background-color: cornsilk;
   top: 50px;
-  width: 100%;
+  padding: 10px;
+  overflow-y: scroll;
+  max-height: 335px;
+}
+
+.search-wrapper {
+  flex: 1 1 auto;
+  align-self: center;
+}
+.search-poster {
+  max-height: 90px;
+  max-width: 70px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.results-title {
+  display: inline-block;
+}
+
+.results {
+  display: flex;
+  margin-bottom: 10px;
 }

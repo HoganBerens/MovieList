@@ -21,7 +21,7 @@ body {
 
 .movieTitle {
   padding: 5px;
-  inline-size: 200px;
+  inline-size: 350px;
 }
 
 .moviePoster {
@@ -30,6 +30,7 @@ body {
 .mapWrapper {
   display: flex;
   flex-wrap: wrap;
+  background-color: #f3cbcb;
 }
 
 a:link {

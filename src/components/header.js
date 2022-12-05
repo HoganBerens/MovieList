@@ -1,6 +1,7 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import "./header.css";
-import { api_key, debounce } from "./utils";
+import { api_key, debounce, imagePath } from "./utils";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -21,21 +22,29 @@ const Header = () => {
   return (
     <div>
       <div className="header-wrapper">
-        <div className="home-button" href={`/home`}>
+        <Link className="home-button" to={`/`}>
           Home
-        </div>
+        </Link>
         <div className="title">Movie List</div>
         <div className="search-wrapper">
           <label className="search-icon">Search</label>
           <input type="text" onChange={submitHandler} />
-          <div className="results-wrapper">
-            {searchResults.map((movie, index) => (
-              <div key={index}>
-                <div>{console.log(movie)}</div>
-                <div>{movie.title}</div>
-              </div>
-            ))}
-          </div>
+          {console.log(searchResults)}
+          {!!searchResults.length && (
+            <div className="results-wrapper">
+              {searchResults.map((movie, index) => (
+                <Link key={index} to={`/viewMovie?id=${movie.id}`}>
+                  <div className="results">
+                    <img
+                      className="search-poster"
+                      src={`${imagePath}${movie.poster_path}`}
+                    />
+                    <div className="results-title">{movie.title}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

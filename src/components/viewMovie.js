@@ -13,6 +13,7 @@ const ViewMovie = () => {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         let trailer = data.results.find(
           (movie) => movie.name === "Official Trailer"
         );
@@ -45,12 +46,20 @@ const ViewMovie = () => {
         <div className="childrenWrapper">
           <h1 className="title">{clickedMovie.title}</h1>
           <div className="description">
-            {" "}
-            Description: {clickedMovie.overview}
+            <b>Description: </b>
+            {clickedMovie.overview}
           </div>
-          <div className="date"> Release Date:{clickedMovie.release_date}</div>
-          <div className="rating"> Rating:{clickedMovie.vote_average}</div>
-          <div onClick={trailerHandler}>Trailer</div>
+          <div className="date">
+            <b>Release Date: </b>
+            {clickedMovie.release_date}
+          </div>
+          <div className="rating">
+            <b>Rating: </b>
+            {clickedMovie.vote_average}
+          </div>
+          <div className="trailer" onClick={trailerHandler}>
+            Link To Trailer
+          </div>
         </div>
       </div>
       <Link className="backButton" to={`/`}>
