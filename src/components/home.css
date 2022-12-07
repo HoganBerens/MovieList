@@ -38,3 +38,13 @@ a:link {
   color: black;
   font-size: 24px;
 }
+
+.favoriteMovie-wrapper {
+  position: relative;
+}
+.heart {
+  position: absolute;
+}
+.heart-wrapper {
+  position: relative;
+}

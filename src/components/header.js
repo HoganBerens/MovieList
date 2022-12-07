@@ -14,6 +14,8 @@ const Header = () => {
       .then((data) => {
         if (data && data.results.length) {
           setSearchResults(data.results);
+        } else {
+          alert("No Movies Found");
         }
       })
       .catch((err) => console.error(err));
@@ -29,7 +31,7 @@ const Header = () => {
         <div className="search-wrapper">
           <label className="search-icon">Search</label>
           <input type="text" onChange={submitHandler} />
-          {console.log(searchResults)}
+
           {!!searchResults.length && (
             <div className="results-wrapper">
               {searchResults.map((movie, index) => (
