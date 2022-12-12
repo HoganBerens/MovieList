@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  background-color: #f3cbcb;
 }
 
 .home-wrapper {
@@ -29,8 +30,8 @@ body {
 
 .mapWrapper {
   display: flex;
+
   flex-wrap: wrap;
-  background-color: #f3cbcb;
 }
 
 a:link {
@@ -47,4 +48,18 @@ a:link {
 }
 .heart-wrapper {
   position: relative;
+}
+
+.favoriteWrapper {
+  display: flex;
+  background-color: #f3cbcb;
+  flex-wrap: wrap;
+}
+.favoriteMovie {
+  flex: 1 1 auto;
+}
+
+.favoriteTitle {
+}
+.favoritePoster {
 }

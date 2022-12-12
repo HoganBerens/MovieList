@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path={"/viewMovie"} exact={true} element={<ViewMovie />} />
-      <Route path={"/"} exact={true} element={<Home />} />
+      <Route path={""} exact={true} element={<Home />} />
     </Routes>
   );
 }

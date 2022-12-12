@@ -3,7 +3,6 @@ import { api_key, popular, imagePath, videoPath } from "./utils";
 import "./viewMovie.css";
 import { Link } from "react-router-dom";
 import Header from "./header";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ViewMovie = () => {
   const [clickedMovie, setClickedMovie] = useState({});
@@ -63,9 +62,7 @@ const ViewMovie = () => {
           </div>
         </div>
       </div>
-      <Link className="backButton" to={`/`}>
-        <FontAwesomeIcon icon="fa-solid fa-x" />
-      </Link>
+      <Link className="backButton" to={`/`}></Link>
     </div>
   );
 };
