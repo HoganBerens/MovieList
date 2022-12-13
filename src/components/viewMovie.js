@@ -13,7 +13,6 @@ const ViewMovie = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         let trailer = data.results.find(
           (movie) => movie.name === "Official Trailer"
         );

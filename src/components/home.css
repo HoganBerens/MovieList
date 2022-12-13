@@ -30,7 +30,6 @@ body {
 
 .mapWrapper {
   display: flex;
-
   flex-wrap: wrap;
 }
 
@@ -62,4 +61,8 @@ a:link {
 .favoriteTitle {
 }
 .favoritePoster {
+}
+
+.movieListTitles {
+  margin-left: 10px;
 }
