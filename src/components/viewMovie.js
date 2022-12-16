@@ -57,8 +57,9 @@ const ViewMovie = () => {
             {clickedMovie.vote_average}
           </div>
           <div className="trailer" onClick={trailerHandler}>
-            Link To Trailer
+            Watch Trailer
           </div>
+          {console.log(clickedMovie)}
         </div>
       </div>
       <Link className="backButton" to={`/`}></Link>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
+  const [hasSearched, setHasSearched] = useState(false);
 
   let submitHandler = debounce((event) => {
     fetch(
@@ -12,12 +13,13 @@ const Header = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        if (data && data.results.length) {
+        if (data && data.results) {
           setSearchResults(data.results);
         } else {
-          alert("No Movies Found");
+          setSearchResults([]);
         }
       })
+
       .catch((err) => console.error(err));
   }, 1000);
 
@@ -31,8 +33,7 @@ const Header = () => {
         <div className="search-wrapper">
           <label className="search-icon">Search</label>
           <input type="text" onChange={submitHandler} />
-
-          {!!searchResults.length && (
+          {!!searchResults.length ? (
             <div className="results-wrapper">
               {searchResults.map((movie, index) => (
                 <Link key={index} to={`/viewMovie?id=${movie.id}`}>
@@ -46,6 +47,8 @@ const Header = () => {
                 </Link>
               ))}
             </div>
+          ) : (
+            <div className="noResults">"No Movies Found"</div>
           )}
         </div>
       </div>
