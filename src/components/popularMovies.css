@@ -1,0 +1,9 @@
+.heart {
+  position: absolute;
+  top: 35px;
+  left: 300px;
+  color: red;
+}
+.heart-wrapper {
+  position: relative;
+}

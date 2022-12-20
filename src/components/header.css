@@ -1,6 +1,6 @@
 .header-wrapper {
   display: flex;
-  background-color: blanchedalmond;
+  background-color: #ffffd3;
 }
 .home-button {
   flex: 1 1 auto;
@@ -34,11 +34,13 @@
 
 .results-wrapper {
   position: absolute;
-  background-color: cornsilk;
-  top: 50px;
+  background-color: #ffffd3;
+  top: 47px;
   padding: 10px;
   overflow-y: scroll;
   max-height: 335px;
+  z-index: 2;
+  right: 0px;
 }
 
 .search-wrapper {
@@ -63,8 +65,15 @@
   margin-bottom: 10px;
 }
 .noResults {
+  display: flex;
   position: absolute;
-  right: 15px;
+  width: 319.98px;
+  font-size: 26px;
+  height: 89.99px;
   top: 37px;
-  background-color: cornsilk;
+  margin-top: 10px;
+  background-color: #ffffd3;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
 }

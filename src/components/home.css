@@ -1,6 +1,6 @@
 body {
   margin: 0px;
-  background-color: #f3cbcb;
+  background-color: #e9dbe8;
 }
 
 .home-wrapper {
@@ -23,9 +23,6 @@ body {
 .movieTitle {
   padding: 5px;
   inline-size: 350px;
-}
-
-.moviePoster {
 }
 
 .mapWrapper {
@@ -51,18 +48,15 @@ a:link {
 
 .favoriteWrapper {
   display: flex;
-  background-color: #f3cbcb;
+  background-color: #e9dbe8;
   flex-wrap: wrap;
 }
 .favoriteMovie {
   flex: 1 1 auto;
 }
 
-.favoriteTitle {
-}
-.favoritePoster {
-}
-
 .movieListTitles {
   margin-left: 10px;
+  font-size: 36px;
+  font-weight: bold;
 }

@@ -1,15 +1,16 @@
-import React from "react";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { imagePath } from "./utils";
+import React from 'react';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { imagePath } from './utils';
+import './popularMovies.css';
 
 const PopularMovies = (props) => {
   let { popularMovies, favoriteHandler } = props;
 
   return (
     <div className="popularMoviesWrapper">
-      <h1 className="movieListTitles">Popular Movies</h1>
+      <div className="movieListTitles">Popular Movies: </div>
       <div className="mapWrapper">
         {popularMovies.map((movie, index) => (
           <div>
@@ -18,11 +19,13 @@ const PopularMovies = (props) => {
               className="movieWrapper"
               key={index}
             >
-              <FontAwesomeIcon
-                className="heart"
-                icon={faHeart}
-                onClick={favoriteHandler.bind(this, movie)}
-              />
+              <div className="heart-wrapper">
+                <FontAwesomeIcon
+                  className="heart"
+                  icon={faHeart}
+                  onClick={favoriteHandler.bind(this, movie)}
+                />
+              </div>
               <img
                 className="moviePoster"
                 src={`${imagePath}${movie.poster_path}`}
