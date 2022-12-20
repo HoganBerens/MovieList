@@ -1,27 +1,33 @@
-import React, { useState } from "react";
-import "./header.css";
-import { api_key, debounce, imagePath } from "./utils";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import './header.css';
+import { api_key, debounce, imagePath } from './utils';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
 
   let submitHandler = debounce((event) => {
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&page=1&include_adult=false&query=${event.target.value}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (data && data.results) {
-          setSearchResults(data.results);
-        } else {
-          setSearchResults([]);
-        }
-      })
-
-      .catch((err) => console.error(err));
+    if (event.target.value) {
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&page=1&include_adult=false&query=${event.target.value}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          if (data && data.results) {
+            setSearchResults(data.results);
+            setHasSearched(true);
+          }
+        })
+        .catch((err) => console.error(err));
+    } else {
+      setHasSearched(false);
+      setSearchResults([]);
+    }
   }, 1000);
+
+  if (hasSearched === true) {
+  }
 
   return (
     <div>
@@ -47,9 +53,9 @@ const Header = () => {
                 </Link>
               ))}
             </div>
-          ) : (
-            <div className="noResults">"No Movies Found"</div>
-          )}
+          ) : hasSearched ? (
+            <div className="noResults">No Movies Found</div>
+          ) : null}
         </div>
       </div>
     </div>
