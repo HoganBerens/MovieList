@@ -30,10 +30,9 @@ const ViewMovie = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setClickedMovie(data);
       });
-  }, []);
+  }, [clickedMovie]);
   return (
     <div>
       <Header />
@@ -59,7 +58,6 @@ const ViewMovie = () => {
           <div className="trailer" onClick={trailerHandler}>
             Watch Trailer
           </div>
-          {console.log(clickedMovie)}
         </div>
       </div>
       <Link className="backButton" to={`/`}></Link>
