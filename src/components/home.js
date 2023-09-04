@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "./home.css";
-import { popular, imagePath } from "./utils";
+import { popular } from "./utils";
 import Header from "./header";
 import FavoriteMovies from "./favoriteMovies";
 import PopularMovies from "./popularMovies";
