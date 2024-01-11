@@ -18,7 +18,7 @@ Screenshots
 
 # Getting Started
 
-[Click here to visit MovieList] [https://hoganberens.github.io/movieList]
+[Click here to visit MovieList] [https://hoganberens.github.io/]
 
 
 # Next Steps
